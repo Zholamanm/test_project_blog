@@ -26,6 +26,7 @@ Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'regi
 Route::post('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+Route::get('/api/dashboard', [\App\Http\Controllers\APIDashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/posts', \App\Http\Controllers\Post\IndexController::class)->name('post.index');

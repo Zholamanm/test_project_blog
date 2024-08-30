@@ -22,12 +22,10 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/dashboard');
+            return response()->json(['message' => 'Login successful'], 200);
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return response()->json(['message' => 'Login failed'], 401);
     }
 
     public function logout(Request $request)
