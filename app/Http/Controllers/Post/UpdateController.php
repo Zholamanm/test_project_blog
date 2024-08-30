@@ -14,7 +14,7 @@ class UpdateController extends Controller
 
         $request->validate([
             'title' => 'required|string|max:255',
-            'body' => 'required|string|max:500',
+            'body' => 'required|string|min:500',
             'category_id' => 'required|exists:categories,id',
         ]);
 
